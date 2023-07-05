@@ -1,8 +1,15 @@
 module.exports = {
   env: { es2021: true, node: true, jest: true },
-  extends: ['eslint:recommended', 'plugin:prettier/recommended'],
-  plugins: ['prettier'],
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
+    'plugin:react-native/all',
+    'plugin:prettier/recommended'
+  ],
+  plugins: ['react', 'react-native', 'prettier'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+  settings: { react: { version: 'detect' } },
   rules: {
     'arrow-body-style': ['error', 'as-needed'],
     curly: ['error', 'all'],
@@ -19,6 +26,20 @@ module.exports = {
     'prefer-const': ['error'],
     'prettier/prettier': 'error',
     quotes: ['error', 'single', { avoidEscape: true }],
-    'spaced-comment': ['error', 'always']
+    'spaced-comment': ['error', 'always'],
+    'react/function-component-definition': [
+      'error',
+      { namedComponents: 'arrow-function', unnamedComponents: 'arrow-function' }
+    ],
+    'react/jsx-boolean-value': ['error'],
+    'react/jsx-curly-brace-presence': ['error'],
+    'react/jsx-filename-extension': ['off', { props: 'never', children: 'never' }],
+    'react/jsx-no-undef': ['error'],
+    'react/jsx-no-useless-fragment': ['error'],
+    'react/no-typos': ['error'],
+    'react/no-unused-prop-types': ['error'],
+    'react/prop-types': ['error'],
+    'react/self-closing-comp': ['error', { component: true, html: true }],
+    'react/sort-comp': ['error']
   }
 };
