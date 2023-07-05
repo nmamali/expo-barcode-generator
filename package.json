@@ -22,11 +22,21 @@
   "keywords": ["React", "ReactNative", "Barcode", "Expo"],
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint \"./**/*.js\" --fix",
+    "lint:ci": "eslint \"./**/*.js\"",
+    "prepare": "husky install",
+    "prettier": "prettier --write \"./**/*.{js,json,md}\""
   },
-  "license": "ISC",
   "dependencies": {
     "jsbarcode": "^3.11.0",
     "react-native-svg": "^13.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8"
   }
 }
