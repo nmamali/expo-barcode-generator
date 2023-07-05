@@ -1,0 +1,92 @@
+* text=lf
+
+*.js text eol=lf
+*.ts text eol=lf
+*.jsx text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.html text eol=lf
+*.sh text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.sql text eol=lf
+*.yml text eol=lf
+*.toml text eol=lf
+*.drawio text eol=lf
+*.conf text eol=lf
+*.snap text eol=lf
+*.txt text eol=lf
+*.rest text eol=lf
+*.xml text eol=lf
+
+# Images
+*.png binary
+*.PNG binary
+*.jpg binary
+*.JPG binary
+*.jpeg binary
+*.JPEG binary
+*.gif binary
+*.GIF binary
+
+# Videos
+*.avchd binary
+*.AVCHD binary
+*.avi binary
+*.AVI binary
+*.flv binary
+*.FLV binary
+*.m4p binary
+*.M4P binary
+*.m4v binary
+*.M4V binary
+*.mkv binary
+*.MKV binary
+*.mov binary
+*.MOV binary
+*.mp2 binary
+*.MP2 binary
+*.mp4 binary
+*.MP4 binary
+*.mpe binary
+*.MPE binary
+*.mpeg binary
+*.MPEG binary
+*.mpg binary
+*.MPG binary
+*.mpv binary
+*.MPV binary
+*.mvi binary
+*.MVI binary
+*.ogg binary
+*.OGG binary
+*.qt binary
+*.QT binary
+*.swf binary
+*.SWF binary
+*.webm binary
+*.WEBM binary
+*.wmv binary
+*.WMV binary
+
+# Documents
+*.doc binary
+*.docx binary
+*.xlsx binary
+*.xls binary
+*.pdf binary
+
+# Font
+*.ico binary
+*.eot binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
+*.otf binary
+
+# Archives
+*.zip binary
+*.tar binary
+*.tar.gz binary
+*.tgz binary

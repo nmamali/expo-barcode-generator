@@ -1,0 +1,32 @@
+{
+  "name": "expo-barcode-generator",
+  "version": "1.0.2",
+  "author": {
+    "name": "Nicholas Mamali",
+    "email": "mamalefhulufhelo@gmail.com"
+  },
+  "contributors": [{
+    "name": "JP Strydom",
+    "email": "jpstrydom8@gmail.com"
+  }],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nmamali/expo-barcode-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nmamali/expo-barcode-generator/issues"
+  },
+  "homepage": "https://github.com/nmamali/expo-barcode-generator#readme",
+  "license": "ISC",
+  "description": "A React Native barcode generator compatible with Expo",
+  "keywords": ["React", "ReactNative", "Barcode", "Expo"],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "jsbarcode": "^3.11.0",
+    "react-native-svg": "^13.4.0"
+  }
+}
