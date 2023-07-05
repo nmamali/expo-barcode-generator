@@ -1,5 +1,9 @@
 # Barcode Component
 
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
+[![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](http://standardjs.com)
+
 This is a React Native component that generates barcodes using the JSBarcode library and renders them using the react-native-svg package. The component supports both Expo Web, IOS and Android .
 
 ## Installation
