@@ -182,7 +182,7 @@ const BarcodeText = props => {
   }
 };
 
-const Barcode = ({ value, options, rotation }) => {
+export const Barcode = ({ value, options, rotation }) => {
   const barcode = {};
 
   JSBarcode(barcode, value, options);
@@ -255,4 +255,3 @@ const Barcode = ({ value, options, rotation }) => {
   );
 };
 
-export default Barcode;

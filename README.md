@@ -1,4 +1,4 @@
-# Barcode Component
+# Expo Barcode Generator
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
@@ -16,7 +16,7 @@ Usage
 ```
 import React from 'react';
 import { View } from 'react-native';
-import Barcode from 'expo-barcode-generator';
+import { Barcode } from 'expo-barcode-generator';
 
 export default function App() {
   return (
