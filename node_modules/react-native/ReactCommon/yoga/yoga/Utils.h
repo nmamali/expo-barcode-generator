@@ -117,7 +117,7 @@ inline YGFloatOptional YGResolveValue(
 }
 
 inline YGFloatOptional YGResolveValue(
-    facebook::yoga::detail::CompactValue value,
+    yoga::detail::CompactValue value,
     float ownerSize) {
   return YGResolveValue((YGValue) value, ownerSize);
 }
@@ -142,9 +142,11 @@ inline YGFlexDirection YGResolveFlexDirection(
 }
 
 inline YGFloatOptional YGResolveValueMargin(
-    facebook::yoga::detail::CompactValue value,
+    yoga::detail::CompactValue value,
     const float ownerSize) {
   return value.isAuto() ? YGFloatOptional{0} : YGResolveValue(value, ownerSize);
 }
+
+void throwLogicalErrorWithMessage(const char* message);
 
 #endif

@@ -279,7 +279,7 @@ MethodCallResult MethodInvoker::invoke(
     case 'v':
       env->CallVoidMethodA(module.get(), method_, args);
       throwPendingJniExceptionAsCppException();
-      return std::nullopt;
+      return folly::none;
 
     case 'z':
       PRIMITIVE_CASE_CASTING(Boolean, bool)
@@ -307,7 +307,7 @@ MethodCallResult MethodInvoker::invoke(
 
     default:
       LOG(FATAL) << "Unknown return type: " << returnType;
-      return std::nullopt;
+      return folly::none;
   }
 }
 

@@ -10,6 +10,7 @@
 #include <vector>
 
 #include <react/renderer/core/LayoutableShadowNode.h>
+#include <react/renderer/graphics/Geometry.h>
 
 namespace facebook {
 namespace react {

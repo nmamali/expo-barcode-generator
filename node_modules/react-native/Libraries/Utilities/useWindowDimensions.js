@@ -22,9 +22,9 @@ export default function useWindowDimensions():
   useEffect(() => {
     function handleChange({
       window,
-    }: {
-      window: DisplayMetrics | DisplayMetricsAndroid,
-    }) {
+    }:
+      | $FlowFixMe
+      | $TEMPORARY$object<{window: DisplayMetrics | DisplayMetricsAndroid}>) {
       if (
         dimensions.width !== window.width ||
         dimensions.height !== window.height ||

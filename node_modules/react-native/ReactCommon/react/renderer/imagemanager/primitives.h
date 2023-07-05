@@ -10,8 +10,7 @@
 #include <string>
 #include <vector>
 
-#include <react/renderer/graphics/Float.h>
-#include <react/renderer/graphics/Size.h>
+#include <react/renderer/graphics/Geometry.h>
 
 namespace facebook {
 namespace react {

@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include <react/renderer/graphics/RectangleEdges.h>
+#include <react/renderer/graphics/Geometry.h>
 
 namespace facebook {
 namespace react {

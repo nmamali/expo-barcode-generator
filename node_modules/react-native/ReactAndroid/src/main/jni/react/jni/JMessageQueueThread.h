@@ -12,7 +12,10 @@
 #include <cxxreact/MessageQueueThread.h>
 #include <fbjni/fbjni.h>
 
-namespace facebook::react {
+using namespace facebook::jni;
+
+namespace facebook {
+namespace react {
 
 class JavaMessageQueueThread : public jni::JavaClass<JavaMessageQueueThread> {
  public:
@@ -22,7 +25,7 @@ class JavaMessageQueueThread : public jni::JavaClass<JavaMessageQueueThread> {
 
 class JMessageQueueThread : public MessageQueueThread {
  public:
-  JMessageQueueThread(jni::alias_ref<JavaMessageQueueThread::javaobject> jobj);
+  JMessageQueueThread(alias_ref<JavaMessageQueueThread::javaobject> jobj);
 
   /**
    * Enqueues the given function to run on this MessageQueueThread.
@@ -47,7 +50,8 @@ class JMessageQueueThread : public MessageQueueThread {
   }
 
  private:
-  jni::global_ref<JavaMessageQueueThread::javaobject> m_jobj;
+  global_ref<JavaMessageQueueThread::javaobject> m_jobj;
 };
 
-} // namespace facebook::react
+} // namespace react
+} // namespace facebook

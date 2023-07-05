@@ -92,7 +92,8 @@ std::vector<std::string> ModuleRegistry::moduleNames() {
   return names;
 }
 
-std::optional<ModuleConfig> ModuleRegistry::getConfig(const std::string &name) {
+folly::Optional<ModuleConfig> ModuleRegistry::getConfig(
+    const std::string &name) {
   SystraceSection s("ModuleRegistry::getConfig", "module", name);
 
   // Initialize modulesByName_
@@ -106,14 +107,14 @@ std::optional<ModuleConfig> ModuleRegistry::getConfig(const std::string &name) {
     if (unknownModules_.find(name) != unknownModules_.end()) {
       BridgeNativeModulePerfLogger::moduleJSRequireBeginningFail(name.c_str());
       BridgeNativeModulePerfLogger::moduleJSRequireEndingStart(name.c_str());
-      return std::nullopt;
+      return folly::none;
     }
 
     if (!moduleNotFoundCallback_) {
       unknownModules_.insert(name);
       BridgeNativeModulePerfLogger::moduleJSRequireBeginningFail(name.c_str());
       BridgeNativeModulePerfLogger::moduleJSRequireEndingStart(name.c_str());
-      return std::nullopt;
+      return folly::none;
     }
 
     BridgeNativeModulePerfLogger::moduleJSRequireBeginningEnd(name.c_str());
@@ -127,7 +128,7 @@ std::optional<ModuleConfig> ModuleRegistry::getConfig(const std::string &name) {
     if (!wasModuleRegisteredWithRegistry) {
       BridgeNativeModulePerfLogger::moduleJSRequireEndingStart(name.c_str());
       unknownModules_.insert(name);
-      return std::nullopt;
+      return folly::none;
     }
   } else {
     BridgeNativeModulePerfLogger::moduleJSRequireBeginningEnd(name.c_str());
@@ -186,7 +187,7 @@ std::optional<ModuleConfig> ModuleRegistry::getConfig(const std::string &name) {
 
   if (config.size() == 2 && config[1].empty()) {
     // no constants or methods
-    return std::nullopt;
+    return folly::none;
   } else {
     return ModuleConfig{index, std::move(config)};
   }

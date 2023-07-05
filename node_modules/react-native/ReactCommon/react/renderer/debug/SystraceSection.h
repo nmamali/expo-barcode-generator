@@ -15,16 +15,6 @@ namespace facebook {
 namespace react {
 
 /**
- * Allow providing an fbsystrace implementation that can short-circuit out
- * quickly and can throttle too frequent events so we can get useful traces even
- * if rendering etc. is spinning. For throttling we'll need file/line info so we
- * use a macro.
- */
-#if defined(WITH_LOOM_TRACE)
-#define SystraceSection                                         \
-  static constexpr const char systraceSectionFile[] = __FILE__; \
-  fbsystrace::FbSystraceSection<systraceSectionFile, __LINE__>
-/**
  * This is a convenience class to avoid lots of verbose profiling
  * #ifdefs.  If WITH_FBSYSTRACE is not defined, the optimizer will
  * remove this completely.  If it is defined, it will behave as
@@ -33,7 +23,7 @@ namespace react {
  * different values in different files, there is no inconsistency in the sizes
  * of defined symbols.
  */
-#elif defined(WITH_FBSYSTRACE)
+#ifdef WITH_FBSYSTRACE
 struct ConcreteSystraceSection {
  public:
   template <typename... ConvertsToStringPiece>
@@ -51,8 +41,8 @@ struct DummySystraceSection {
  public:
   template <typename... ConvertsToStringPiece>
   explicit DummySystraceSection(
-      __unused const char *name,
-      __unused ConvertsToStringPiece &&...args) {}
+      const char *name,
+      ConvertsToStringPiece &&...args) {}
 };
 using SystraceSection = DummySystraceSection;
 #endif

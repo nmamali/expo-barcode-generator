@@ -11,6 +11,9 @@
 #include <map>
 #include "common.h"
 
+using namespace facebook::yoga::vanillajni;
+using namespace std;
+
 class PtrJNodeMapVanilla {
   std::map<YGNodeRef, size_t> ptrsToIdxs_;
   jobjectArray javaNodes_;
@@ -19,7 +22,6 @@ public:
   PtrJNodeMapVanilla() : ptrsToIdxs_{}, javaNodes_{} {}
   PtrJNodeMapVanilla(jlongArray javaNativePointers, jobjectArray javaNodes)
       : javaNodes_{javaNodes} {
-    using namespace facebook::yoga::vanillajni;
 
     JNIEnv* env = getCurrentEnv();
     size_t nativePointersSize = env->GetArrayLength(javaNativePointers);
@@ -32,9 +34,7 @@ public:
     }
   }
 
-  facebook::yoga::vanillajni::ScopedLocalRef<jobject> ref(YGNodeRef node) {
-    using namespace facebook::yoga::vanillajni;
-
+  ScopedLocalRef<jobject> ref(YGNodeRef node) {
     JNIEnv* env = getCurrentEnv();
     auto idx = ptrsToIdxs_.find(node);
     if (idx == ptrsToIdxs_.end()) {

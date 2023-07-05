@@ -43,6 +43,11 @@ public class ReactFindViewUtil {
   public interface OnMultipleViewsFoundListener {
 
     void onViewFound(View view, String nativeId);
+    /**
+     * Called when all teh views have been found
+     *
+     * @param map
+     */
   }
 
   /**

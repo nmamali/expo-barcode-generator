@@ -9,7 +9,6 @@ set(CMAKE_VERBOSE_MAKEFILE on)
 add_compile_options(
         -fexceptions
         -frtti
-        -std=c++17
         -Wno-unused-lambda-capture
         -DLOG_TAG=\"ReactNative\")
 

@@ -11,7 +11,6 @@ import android.content.Context;
 import androidx.annotation.Nullable;
 import com.facebook.react.common.SurfaceDelegateFactory;
 import com.facebook.react.devsupport.interfaces.DevBundleDownloadListener;
-import com.facebook.react.devsupport.interfaces.DevLoadingViewManager;
 import com.facebook.react.devsupport.interfaces.DevSupportManager;
 import com.facebook.react.devsupport.interfaces.RedBoxHandler;
 import com.facebook.react.packagerconnection.RequestHandler;
@@ -29,8 +28,6 @@ public class DefaultDevSupportManagerFactory implements DevSupportManagerFactory
   private static final String DEVSUPPORT_IMPL_PACKAGE = "com.facebook.react.devsupport";
   private static final String DEVSUPPORT_IMPL_CLASS = "BridgeDevSupportManager";
 
-  /** @deprecated in favor of the customisable create for DevSupportManagerFactory */
-  @Deprecated
   public DevSupportManager create(
       Context applicationContext,
       ReactInstanceDevHelper reactInstanceDevHelper,
@@ -47,7 +44,6 @@ public class DefaultDevSupportManagerFactory implements DevSupportManagerFactory
         null,
         minNumShakes,
         null,
-        null,
         null);
   }
 
@@ -61,15 +57,10 @@ public class DefaultDevSupportManagerFactory implements DevSupportManagerFactory
       @Nullable DevBundleDownloadListener devBundleDownloadListener,
       int minNumShakes,
       @Nullable Map<String, RequestHandler> customPackagerCommandHandlers,
-      @Nullable SurfaceDelegateFactory surfaceDelegateFactory,
-      @Nullable DevLoadingViewManager devLoadingViewManager) {
+      @Nullable SurfaceDelegateFactory surfaceDelegateFactory) {
     if (!enableOnCreate) {
       return new DisabledDevSupportManager();
     }
-    // Developer support is enabled, we now must choose whether to return a DevSupportManager,
-    // or a more lean profiling-only PerftestDevSupportManager. We make the choice by first
-    // trying to return the full support DevSupportManager and if it fails, then just
-    // return PerftestDevSupportManager.
     try {
       // ProGuard is surprisingly smart in this case and will keep a class if it detects a call to
       // Class.forName() with a static string. So instead we generate a quasi-dynamic string to
@@ -90,8 +81,7 @@ public class DefaultDevSupportManagerFactory implements DevSupportManagerFactory
               DevBundleDownloadListener.class,
               int.class,
               Map.class,
-              SurfaceDelegateFactory.class,
-              DevLoadingViewManager.class);
+              SurfaceDelegateFactory.class);
       return (DevSupportManager)
           constructor.newInstance(
               applicationContext,
@@ -102,10 +92,12 @@ public class DefaultDevSupportManagerFactory implements DevSupportManagerFactory
               devBundleDownloadListener,
               minNumShakes,
               customPackagerCommandHandlers,
-              surfaceDelegateFactory,
-              devLoadingViewManager);
+              surfaceDelegateFactory);
     } catch (Exception e) {
-      return new PerftestDevSupportManager(applicationContext);
+      throw new RuntimeException(
+          "Requested enabled DevSupportManager, but BridgeDevSupportManager class was not found"
+              + " or could not be created",
+          e);
     }
   }
 }
