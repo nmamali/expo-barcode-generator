@@ -5,10 +5,12 @@
     "name": "Nicholas Mamali",
     "email": "mamalefhulufhelo@gmail.com"
   },
-  "contributors": [{
-    "name": "JP Strydom",
-    "email": "jpstrydom8@gmail.com"
-  }],
+  "contributors": [
+    {
+      "name": "JP Strydom",
+      "email": "jpstrydom8@gmail.com"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nmamali/expo-barcode-generator.git"
@@ -19,7 +21,12 @@
   "homepage": "https://github.com/nmamali/expo-barcode-generator#readme",
   "license": "ISC",
   "description": "A React Native barcode generator compatible with Expo",
-  "keywords": ["React", "ReactNative", "Barcode", "Expo"],
+  "keywords": [
+    "React",
+    "ReactNative",
+    "Barcode",
+    "Expo"
+  ],
   "main": "index.js",
   "scripts": {
     "lint": "eslint \"./**/*.js\" --fix",
@@ -39,7 +46,7 @@
     "eslint-plugin-react-native": "^4.0.0",
     "husky": "^8.0.0",
     "lint-staged": "^13.2.2",
-    "prettier": "^2.8.8"
-
+    "prettier": "^2.8.8",
+    "prop-types": "^15.8.1"
   }
 }
