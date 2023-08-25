@@ -10,7 +10,7 @@ import {
   calculateEncodingAttributes
 } from './services';
 
-export const Barcode = ({ value, options, rotation }) => {
+export const Barcode = ({ value, options, rotation, scale = 1 }) => {
   const barcode = {};
   const defaultOptions = {
     background: '#ffffff',
@@ -28,7 +28,20 @@ export const Barcode = ({ value, options, rotation }) => {
     textPosition: 'bottom',
     width: 2
   };
-  JSBarcode(barcode, value, options);
+  
+  const scaledOptions = {
+    ...options,
+    width: scale * options.width,
+    height: scale * options.height,
+    fontSize: scale * options.fontSize,
+    marginBottom: scale * options.marginBottom,
+    marginLeft: scale * options.marginLeft,
+    marginRight: scale * options.marginRight,
+    marginTop: scale * options.marginTop,
+    textMargin: scale * options.textMargin,
+  };
+
+  JSBarcode(barcode, value, scaledOptions);
   const encodings = barcode.encodings;
   const mergedOptions = merge(defaultOptions, options);
 
@@ -79,5 +92,6 @@ export const Barcode = ({ value, options, rotation }) => {
 Barcode.propTypes = {
   rotation: PropTypes.number,
   options: PropTypes.object,
-  value: PropTypes.string.isRequired
+  value: PropTypes.string.isRequired,
+  scale: PropTypes.number
 };
