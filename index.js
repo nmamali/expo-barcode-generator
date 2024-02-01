@@ -2,13 +2,13 @@ import Svg, { G } from 'react-native-svg';
 import JSBarcode from 'jsbarcode';
 import PropTypes from 'prop-types';
 
-import { Background, BarcodeChunk, BarcodeText } from './components';
 import {
   getMaximumHeightOfEncodings,
   getTotalWidthOfEncodings,
   merge,
   calculateEncodingAttributes
 } from './services';
+import { Background, BarcodeChunk, BarcodeText } from './components';
 
 export const Barcode = ({ value, options, rotation }) => {
   const barcode = {};
@@ -76,6 +76,7 @@ export const Barcode = ({ value, options, rotation }) => {
     </Svg>
   );
 };
+
 Barcode.propTypes = {
   rotation: PropTypes.number,
   options: PropTypes.object,
