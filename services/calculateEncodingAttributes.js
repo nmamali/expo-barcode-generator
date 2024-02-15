@@ -1,9 +1,9 @@
 import { merge } from './merge';
-import { messureText } from './messureText';
+import { measureText } from './measureText';
 import { getBarcodePadding } from './getBarcodePadding';
 import { getEncodingHeight } from './getEncodingHeight';
 
-export function calculateEncodingAttributes(encodings, barcodeOptions, context) {
+export const calculateEncodingAttributes = (encodings, barcodeOptions, context) => {
   for (let i = 0; i < encodings.length; i++) {
     const encoding = encodings[i];
     const options = merge(barcodeOptions, encoding.options);
@@ -11,7 +11,7 @@ export function calculateEncodingAttributes(encodings, barcodeOptions, context) 
     // Calculate the width of the encoding
     let textWidth;
     if (options.displayValue) {
-      textWidth = messureText(encoding.text, options, context);
+      textWidth = measureText(encoding.text, options, context);
     } else {
       textWidth = 0;
     }
@@ -23,4 +23,4 @@ export function calculateEncodingAttributes(encodings, barcodeOptions, context) 
 
     encoding.barcodePadding = getBarcodePadding(textWidth, barcodeWidth, options);
   }
-}
+};

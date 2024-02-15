@@ -1,5 +1,5 @@
 module.exports = {
-  env: { es2021: true, node: true, jest: true },
+  env: { es2022: true, node: true, jest: true },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -7,12 +7,16 @@ module.exports = {
     'plugin:react-native/all',
     'plugin:prettier/recommended'
   ],
-  plugins: ['react', 'react-native', 'prettier'],
+  plugins: ['react', 'react-native', 'prettier', 'import'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: 'detect' } },
   rules: {
     'arrow-body-style': ['error', 'as-needed'],
+    eqeqeq: ['error'],
+    complexity: ['error', 10],
     curly: ['error', 'all'],
+    'import/no-default-export': ['error'],
+    'max-params': ['error'],
     'no-console': ['error', { allow: ['warn', 'error'] }],
     'no-eval': ['error'],
     'no-implied-eval': ['error'],
@@ -24,9 +28,8 @@ module.exports = {
     'no-use-before-define': ['error', { functions: true, classes: true, variables: false }],
     'no-var': ['error'],
     'prefer-const': ['error'],
-    'prettier/prettier': 'error',
+    'prettier/prettier': ['error'],
     quotes: ['error', 'single', { avoidEscape: true }],
-    'spaced-comment': ['error', 'always'],
     'react/function-component-definition': [
       'error',
       { namedComponents: 'arrow-function', unnamedComponents: 'arrow-function' }
@@ -40,6 +43,7 @@ module.exports = {
     'react/no-unused-prop-types': ['error'],
     'react/prop-types': ['error'],
     'react/self-closing-comp': ['error', { component: true, html: true }],
-    'react/sort-comp': ['error']
+    'react/sort-comp': ['error'],
+    'spaced-comment': ['error', 'always']
   }
 };

@@ -1,7 +1,7 @@
-node_modules/
-coverage/
-web-build/
 .expo/
 .husky/
 android/
+coverage/
 ios/
+node_modules/
+web-build/
