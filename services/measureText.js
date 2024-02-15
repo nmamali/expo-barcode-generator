@@ -1,4 +1,4 @@
-export function messureText(string, options, context) {
+export const measureText = (string, options, context) => {
   let ctx;
 
   if (context) {
@@ -12,4 +12,4 @@ export function messureText(string, options, context) {
   const size = ctx.measureText(string).width;
 
   return size;
-}
+};

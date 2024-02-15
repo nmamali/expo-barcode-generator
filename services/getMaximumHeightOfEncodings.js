@@ -1,4 +1,4 @@
-export function getMaximumHeightOfEncodings(encodings) {
+export const getMaximumHeightOfEncodings = encodings => {
   let maxHeight = 0;
   for (let i = 0; i < encodings.length; i++) {
     if (encodings[i].height > maxHeight) {
@@ -6,4 +6,4 @@ export function getMaximumHeightOfEncodings(encodings) {
     }
   }
   return maxHeight;
-}
+};
