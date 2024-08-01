@@ -46,7 +46,7 @@ export const BarcodeChunk = ({ binary, padding, options }) => {
 
 BarcodeChunk.propTypes = {
   padding: PropTypes.number,
-  binary: PropTypes.arrayOf(PropTypes.string),
+  binary: PropTypes.string,
   options: PropTypes.shape({
     textPosition: PropTypes.oneOf(['top', 'bottom']),
     fontSize: PropTypes.number,
