@@ -1,6 +1,6 @@
 {
   "name": "expo-barcode-generator",
-  "version": "1.0.2",
+  "version": "3.0.1",
   "author": {
     "name": "Nicholas Mamali",
     "email": "mamalefhulufhelo@gmail.com"
@@ -29,24 +29,25 @@
   ],
   "main": "index.js",
   "scripts": {
-    "lint": "eslint \"./**/*.js\" --fix",
-    "lint:ci": "eslint \"./**/*.js\"",
-    "prepare": "husky install",
-    "prettier": "prettier --write \"./**/*.{js,json,md}\""
+    "lint": "eslint \"./**/*.{js,jsx}\" --fix",
+    "lint:ci": "eslint \"./**/*.{js,jsx}\"",
+    "prepare": "husky",
+    "prettier": "prettier --write \"./**/*.{js,jsx,json,md}\""
   },
   "dependencies": {
-    "jsbarcode": "^3.11.0",
-    "react-native-svg": "^13.4.0"
+    "jsbarcode": "^3.11.6",
+    "react-native-svg": "15.2.0"
   },
   "devDependencies": {
-    "eslint": "^8.40.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-native": "^4.0.0",
-    "husky": "^8.0.0",
-    "lint-staged": "^13.2.2",
-    "prettier": "^2.8.8",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-native": "^4.1.0",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.3",
     "prop-types": "^15.8.1"
   }
 }
