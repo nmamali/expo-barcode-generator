@@ -31,7 +31,7 @@ export const BarcodeText = ({ text, width, padding, options }) => {
         x={x}
         y={y}
         fontSize={options.fontSize}
-        fontWeight="bold"
+        fontWeight={options.fontOptions}
         textAnchor={textAnchor}
         fill={options.lineColor}
       >
