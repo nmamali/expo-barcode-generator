@@ -8,6 +8,8 @@ This is a React Native component that generates barcodes using the JSBarcode lib
 
 ## Expo Compatibility
 
+> 💡 For Expo SDK 53, use version 5
+
 > 💡 For Expo SDK 52, use version 4
 
 > 💡 For Expo SDK 51, use version 3
