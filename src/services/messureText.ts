@@ -1,4 +1,7 @@
-export function messureText(string, options, context) {
+import type { InternalOptions } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function messureText(string: string, options: InternalOptions, context?: any) {
   let ctx;
 
   if (context) {

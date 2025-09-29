@@ -1,4 +1,10 @@
-export function getBarcodePadding(textWidth, barcodeWidth, options) {
+import type { InternalOptions } from '../types';
+
+export function getBarcodePadding(
+  textWidth: number,
+  barcodeWidth: number,
+  options: InternalOptions
+) {
   if (options.displayValue && barcodeWidth < textWidth) {
     if (options.textAlign == 'center') {
       return Math.floor((textWidth - barcodeWidth) / 2);

@@ -27,18 +27,27 @@
     "Barcode",
     "Expo"
   ],
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "lint": "eslint \"./**/*.{js,jsx}\" --fix",
-    "lint:ci": "eslint \"./**/*.{js,jsx}\"",
+    "build": "tsc",
+    "lint": "eslint \"./**/*.{js,jsx,ts,tsx}\" --fix",
+    "lint:ci": "eslint \"./**/*.{js,jsx,ts,tsx}\"",
     "prepare": "husky",
-    "prettier": "prettier --write \"./**/*.{js,jsx,json,md}\""
+    "prettier": "prettier --write \"./**/*.{js,jsx,ts,tsx,json,md}\""
   },
   "dependencies": {
     "jsbarcode": "^3.11.6",
     "react-native-svg": "^15.11.2"
   },
   "devDependencies": {
+    "@tsconfig/react-native": "^3.0.5",
+    "@types/react": "^19.0.7",
+    "@typescript-eslint/eslint-plugin": "^8.21.0",
+    "@typescript-eslint/parser": "^8.21.0",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.31.0",
@@ -48,6 +57,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.2.10",
     "prettier": "^3.4.1",
-    "prop-types": "^15.8.1"
+    "prop-types": "^15.8.1",
+    "typescript": "^5.7.3"
   }
 }
