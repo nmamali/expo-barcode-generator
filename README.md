@@ -4,11 +4,20 @@
 
 [![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](http://standardjs.com)
 
-This is a React Native component that generates barcodes using the JSBarcode library and renders them using the react-native-svg package. The component supports both Expo Web, IOS and Android .
+This is a React Native component that generates barcodes using the JSBarcode library and renders them using the react-native-svg package. The component supports Expo Web, iOS and Android.
 
 ## Expo Compatibility
 
-> 💡 For Expo SDK 53, use version 5
+Version 6 supports the latest stable Expo SDK 57 (React 19.2 and React Native 0.86),
+as well as SDKs 53–56. `react-native-svg` is a peer dependency so your app can use
+the version that matches its Expo SDK, including in Expo Go and New Architecture builds.
+
+Install it with `npx expo install react-native-svg` rather than choosing its version manually.
+Expo SDK 57 currently recommends `react-native-svg` 15.15.4. See the
+[Expo SVG documentation](https://docs.expo.dev/versions/v57.0.0/sdk/svg/) and
+[SDK 57 release notes](https://expo.dev/changelog/sdk-57).
+
+> 💡 Version 5 remains available for Expo SDK 53
 
 > 💡 For Expo SDK 52, use version 4
 
@@ -24,12 +33,14 @@ This is a React Native component that generates barcodes using the JSBarcode lib
 
 ```shell
 npm i expo-barcode-generator
+npx expo install react-native-svg
 ```
 
 ### YARN:
 
 ```shell
 yarn add expo-barcode-generator
+yarn expo install react-native-svg
 ```
 
 ## Usage
@@ -53,6 +64,10 @@ export default function App() {
 ```
 
 ## Options
+
+`options` and `rotation` are optional. For example, `<Barcode value="123456789" />`
+renders a CODE128 barcode with the defaults below. Pass `background: 'transparent'`
+for a transparent background.
 
 The options object allows you to customize the appearance and behavior of the barcode. The available options are as follows:
 
@@ -100,3 +115,14 @@ The following barcodes are supported by this library:
 - MSI1110
 - Pharmacode
 - Codabar
+
+## Development
+
+The development dependencies and test preset target Expo SDK 57.
+
+```shell
+npm ci
+npm run lint:ci
+npm test
+npm run test:android
+```

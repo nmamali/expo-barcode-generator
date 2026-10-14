@@ -10,7 +10,7 @@ import {
   calculateEncodingAttributes
 } from './services';
 
-export const Barcode = ({ value, options, rotation }) => {
+export const Barcode = ({ value, options = {}, rotation = 0 }) => {
   const barcode = {};
   const defaultOptions = {
     background: '#ffffff',
@@ -28,9 +28,9 @@ export const Barcode = ({ value, options, rotation }) => {
     textPosition: 'bottom',
     width: 2
   };
+  const mergedOptions = merge(defaultOptions, options);
   JSBarcode(barcode, value, options);
   const encodings = barcode.encodings;
-  const mergedOptions = merge(defaultOptions, options);
 
   calculateEncodingAttributes(encodings, mergedOptions);
   const totalWidth = getTotalWidthOfEncodings(encodings);
@@ -51,11 +51,11 @@ export const Barcode = ({ value, options, rotation }) => {
       originY={0}
       rotation={rotation}
     >
-      {options.background && (
-        <Background width={width} height={maxHeight} color={options.background} />
+      {mergedOptions.background && (
+        <Background width={width} height={maxHeight} color={mergedOptions.background} />
       )}
       {encodings.map((encoding, i) => {
-        const encodingOptions = merge(options, encoding.options);
+        const encodingOptions = merge(mergedOptions, encoding.options);
 
         return (
           <G key={i} x={xs[i]} y={encodingOptions.marginTop} fill={encodingOptions.lineColor}>
